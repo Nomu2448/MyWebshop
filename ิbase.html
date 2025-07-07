@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Shop{% endblock %}</title>
+    <link rel="stylesheet" href="./static/css/styles.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">หน้าแรก</a> |
+        <a href="about.html">เกี่ยวกับเรา</a> |
+        <a href="products.html">สินค้า</a> |
+        <a href="cart.html">ตะกร้าสินค้า</a> |
+        <a href="contact.html">ติดต่อเรา</a>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer style="margin-top:2rem;text-align:center;color:#888;">
+        &copy; 2025 My Shop
+    </footer>
+</body>
+</html>
