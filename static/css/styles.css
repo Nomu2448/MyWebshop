@@ -34,14 +34,14 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #0d6efd;
-  --bs-secondary: #6c757d;
-  --bs-success: #198754;
-  --bs-info: #0dcaf0;
-  --bs-warning: #ffc107;
-  --bs-danger: #dc3545;
-  --bs-light: #f8f9fa;
-  --bs-dark: #212529;
+  --bs-primary: #e53935; /* แดงสด anime */
+  --bs-secondary: #b71c1c; /* แดงเข้ม anime */
+  --bs-success: #ffb300; /* เหลืองทอง anime */
+  --bs-info: #ff8a65; /* ส้มอ่อน anime */
+  --bs-warning: #ffd54f; /* เหลือง anime */
+  --bs-danger: #b71c1c; /* แดงเข้ม anime */
+  --bs-light: #fff1f1; /* ขาวอมชมพู anime */
+  --bs-dark: #2d0a0a; /* น้ำตาลเข้ม anime */
   --bs-primary-rgb: 13, 110, 253;
   --bs-secondary-rgb: 108, 117, 125;
   --bs-success-rgb: 25, 135, 84;
@@ -73,8 +73,8 @@
   --bs-border-radius-xl: 1rem;
   --bs-border-radius-2xl: 2rem;
   --bs-border-radius-pill: 50rem;
-  --bs-link-color: #0d6efd;
-  --bs-link-hover-color: #0a58ca;
+  --bs-link-color: #e53935;
+  --bs-link-hover-color: #b71c1c;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
 }
@@ -90,18 +90,55 @@
     scroll-behavior: smooth;
   }
 }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&family=Mitr:wght@400;700&family=Prompt:wght@400;700&display=swap');
 
 body {
   margin: 0;
-  font-family: var(--bs-body-font-family);
+  font-family: 'Kanit', 'Mitr', 'Prompt', var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
-  background-color: var(--bs-body-bg);
+  background: linear-gradient(135deg, #e3f2fd 0%, #fce4ec 100%);
+  /* โทนฟ้า-ชมพูอ่อน สบายตา */
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+}
+}
+
+/* Anime accent for sidebar and navbar */
+.sb-sidenav-dark {
+  background: linear-gradient(180deg, #b71c1c 0%, #e53935 100%) !important;
+}
+.sb-topnav.navbar {
+  background: linear-gradient(90deg, #e53935 0%, #b71c1c 100%) !important;
+}
+
+/* Card anime border */
+.card {
+  border: 2px solid #e53935;
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px 0 rgba(229,57,53,0.08);
+}
+
+/* Button anime style */
+.btn-primary, .btn-success {
+  background: linear-gradient(90deg, #e53935 0%, #b71c1c 100%);
+  border: none;
+}
+.btn-primary:hover, .btn-success:hover {
+  background: #b71c1c;
+}
+
+/* Table anime accent */
+/* Card, table, header: ฟ้าอ่อนสบายตา */
+.card, .table, .card-header {
+  background-color: #f3f6fd !important;
+}
 }
 
 hr {
