@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="สินค้า - ร้านบักนนท์" />
+    <meta name="author" content="นนท์ ศรีสมบัติ" />
+    <title>สินค้า - ร้านบักนนท์</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <style>
+        .sb-nav-fixed {
+            padding-top: 56px;
+        }
+        .sb-topnav {
+            height: 56px;
+            z-index: 1039;
+        }
+        .sb-sidenav {
+            width: 225px;
+            height: 100vh;
+            z-index: 1038;
+        }
+        .sb-sidenav-dark {
+            background-color: #212529;
+        }
+        .sb-sidenav-dark .sb-sidenav-menu .nav-link {
+            color: #adb5bd;
+        }
+        .sb-sidenav-dark .sb-sidenav-menu .nav-link:hover {
+            color: #fff;
+        }
+        .sb-nav-link-icon {
+            display: inline-block;
+            width: 1rem;
+            text-align: center;
+            margin-right: 0.5rem;
+        }
+        #layoutSidenav {
+            display: flex;
+        }
+        #layoutSidenav_nav {
+            flex-basis: 225px;
+            flex-shrink: 0;
+        }
+        #layoutSidenav_content {
+            position: relative;
+            flex: 1 1 auto;
+            padding: 2rem;
+        }
+        .fadein-page {
+            min-height: calc(100vh - 56px - 120px);
+        }
+        @media (max-width: 991.98px) {
+            #layoutSidenav_nav {
+                display: none;
+            }
+        }
+        .product-card {
+            transition: transform 0.2s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .cart-count {
+            background-color: #dc3545;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+            position: absolute;
+            top: -8px;
+            right: -8px;
+        }
+    </style>
+</head>
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark fixed-top">
+        <!-- Navbar Brand-->
+        <a class="navbar-brand ps-3" href="index.html">ร้านบักนนท์</a>
+        <!-- Sidebar Toggle-->
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+            <div class="input-group">
+                <input class="form-control" type="text" placeholder="ค้นหาสินค้า..." aria-label="Search" />
+                <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#!">การตั้งค่า</a></li>
+                    <li><a class="dropdown-item" href="#!">ประวัติการสั่งซื้อ</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="#!">ออกจากระบบ</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">เมนูหลัก</div>
+                        <a class="nav-link" href="index.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
+                            หน้าแรก
+                        </a>
+                        <a class="nav-link" href="about.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-info-circle"></i></div>
+                            เกี่ยวกับเรา
+                        </a>
+                        <a class="nav-link" href="contact.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-phone"></i></div>
+                            ติดต่อเรา
+                        </a>
+                        <a class="nav-link active" href="products.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
+                            สินค้า
+                        </a>
+                        <a class="nav-link position-relative" href="cart.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
+                            ตะกร้าสินค้า
+                            <span class="cart-count d-none" id="cartCount">0</span>
+                        </a>
+                        <a class="nav-link" href="login.html">
+                            <div class="sb-nav-link-icon"><i class="fas fa-sign-in-alt"></i></div>
+                            เข้าสู่ระบบ
+                        </a>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">ผู้ใช้:</div>
+                    ผู้เยี่ยมชม
+                </div>
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main id="main-content" class="fadein-page">
+                <div class="container-fluid px-4">
+                    <h1 class="mt-4 mb-4">รายการสินค้า</h1>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card product-card shadow-sm h-100">
+                                <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="คีย์บอร์ด" style="height: 250px; object-fit: cover;">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">คีย์บอร์ด Mechanical RGB</h5>
+                                    <p class="card-text">คีย์บอร์ด Mechanical RGB สำหรับเกมเมอร์และงานออฟฟิศ พร้อมไฟ LED หลากสี และสวิตช์คุณภาพสูง</p>
+                                    <div class="mt-auto">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="h5 fw-bold text-danger mb-0">฿1,590</span>
+                                            <button class="btn btn-success" onclick="addToCart('คีย์บอร์ด Mechanical RGB', 1590)">
+                                                <i class="fas fa-cart-plus me-1"></i>เพิ่มลงตะกร้า
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card product-card shadow-sm h-100">
+                                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="หน้าจอ" style="height: 250px; object-fit: cover;">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">หน้าจอ LED 24"</h5>
+                                    <p class="card-text">หน้าจอคอมพิวเตอร์ 24 นิ้ว Full HD 1920x1080 ภาพคมชัด สีสดใส พร้อมพอร์ต HDMI และ VGA</p>
+                                    <div class="mt-auto">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="h5 fw-bold text-danger mb-0">฿3,990</span>
+                                            <button class="btn btn-success" onclick="addToCart('หน้าจอ LED 24', 3990)">
+                                                <i class="fas fa-cart-plus me-1"></i>เพิ่มลงตะกร้า
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card product-card shadow-sm h-100">
+                                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="เมาส์" style="height: 250px; object-fit: cover;">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">เมาส์ไร้สาย Gaming</h5>
+                                    <p class="card-text">เมาส์ไร้สาย ดีไซน์จับถนัดมือ ตอบสนองไว พร้อมไฟ RGB และแบตเตอรี่ใช้งานได้นาน</p>
+                                    <div class="mt-auto">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="h5 fw-bold text-danger mb-0">฿690</span>
+                                            <button class="btn btn-success" onclick="addToCart('เมาส์ไร้สาย Gaming', 690)">
+                                                <i class="fas fa-cart-plus me-1"></i>เพิ่มลงตะกร้า
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card product-card shadow-sm h-100">
+                                <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="หูฟัง" style="height: 250px; object-fit: cover;">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">หูฟัง Gaming</h5>
+                                    <p class="card-text">หูฟัง Gaming สเตอริโอ เสียงคมชัด พร้อมไมโครโฟน เหมาะสำหรับเล่นเกมและทำงาน</p>
+                                    <div class="mt-auto">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="h5 fw-bold text-danger mb-0">฿1,290</span>
+                                            <button class="btn btn-success" onclick="addToCart('หูฟัง Gaming', 1290)">
+                                                <i class="fas fa-cart-plus me-1"></i>เพิ่มลงตะกร้า
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card product-card shadow-sm h-100">
+                                <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="สายชาร์จ" style="height: 250px; object-fit: cover;">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">สายชาร์จ USB-C</h5>
+                                    <p class="card-text">สายชาร์จ USB-C ความยาว 2 เมตร ชาร์จเร็ว ทนทาน เหมาะสำหรับมือถือและอุปกรณ์ต่างๆ</p>
+                                    <div class="mt-auto">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="h5 fw-bold text-danger mb-0">฿290</span>
+                                            <button class="btn btn-success" onclick="addToCart('สายชาร์จ USB-C', 290)">
+                                                <i class="fas fa-cart-plus me-1"></i>เพิ่มลงตะกร้า
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card product-card shadow-sm h-100">
+                                <img src="https://images.unsplash.com/photo-1589492477829-5e65395b66cc?auto=format&fit=crop&w=400&q=80" class="card-img-top" alt="เพาเวอร์แบงค์" style="height: 250px; object-fit: cover;">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">เพาเวอร์แบงค์ 10000mAh</h5>
+                                    <p class="card-text">เพาเวอร์แบงค์ความจุ 10000mAh ชาร์จเร็ว แบบพกพา เหมาะสำหรับเดินทาง</p>
+                                    <div class="mt-auto">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="h5 fw-bold text-danger mb-0">฿590</span>
+                                            <button class="btn btn-success" onclick="addToCart('เพาเวอร์แบงค์ 10000mAh', 590)">
+                                                <i class="fas fa-cart-plus me-1"></i>เพิ่มลงตะกร้า
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; ร้านบักนนท์ 2024</div>
+                        <div>
+                            <a href="#" class="text-decoration-none">นิติกรรมความเป็นส่วนตัว</a>
+                            &middot;
+                            <a href="#" class="text-decoration-none">ข้อกำหนดการใช้งาน</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">
+                        <i class="fas fa-check-circle text-success me-2"></i>เพิ่มสินค้าแล้ว
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <span id="modalMessage"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ซื้อต่อ</button>
+                    <a href="cart.html" class="btn btn-primary">ดูตะกร้า</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script>
+        // Sidebar toggle
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            document.getElementById('layoutSidenav_nav').style.display = 
+                document.getElementById('layoutSidenav_nav').style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Auto-hide sidebar on mobile
+        function checkScreenSize() {
+            if (window.innerWidth <= 991.98) {
+                document.getElementById('layoutSidenav_nav').style.display = 'none';
+            } else {
+                document.getElementById('layoutSidenav_nav').style.display = 'block';
+            }
+        }
+
+        window.addEventListener('resize', checkScreenSize);
+        checkScreenSize();
+
+        // Cart functionality
+        let cart = [];
+
+        function addToCart(name, price) {
+            const item = {
+                name: name,
+                price: price,
+                id: Date.now()
+            };
+            cart.push(item);
+            updateCartCount();
+            showSuccessModal(name, price);
+        }
+
+        function updateCartCount() {
+            const cartCount = document.getElementById('cartCount');
+            if (cart.length > 0) {
+                cartCount.textContent = cart.length;
+                cartCount.classList.remove('d-none');
+            } else {
+                cartCount.classList.add('d-none');
+            }
+        }
+
+        function showSuccessModal(name, price) {
+            const modal = new bootstrap.Modal(document.getElementById('successModal'));
+            document.getElementById('modalMessage').textContent = `เพิ่ม "${name}" ลงในตะกร้าเรียบร้อยแล้ว (฿${price.toLocaleString()})`;
+            modal.show();
+        }
+
+        // Load cart from previous page visits
+        window.addEventListener('load', function() {
+            updateCartCount();
+        });
+    </script>
+</body>
+</html>
