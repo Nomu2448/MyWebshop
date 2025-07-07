@@ -1,3 +1,11 @@
+/* Fade-in animation for page transitions */
+.fadein-page {
+  animation: fadeinAnimePage 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes fadeinAnimePage {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 @charset "UTF-8";
 /*!
 * Start Bootstrap - SB Admin v7.0.7 (https://startbootstrap.com/template/sb-admin)
